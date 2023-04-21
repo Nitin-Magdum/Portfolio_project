@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import WebDevlopment from './WebDevlopment';
+import Python from './Python';
+import MachineLearning from './MachineLearning';
 
 
 const ListItemData = [
@@ -49,7 +52,7 @@ const ListItem = styled.div`
   position: relative;
 
   ::after{
-    content: "${(props)=>props.text}";
+    content: "${(props) => props.text}";
     position: absolute;
     top: 0;
     left: 0;
@@ -78,20 +81,29 @@ const Right = styled.div`
 
 
 const Works = () => {
+  const [work, setWork] = useState("Python")
   return (
     <Section>
-       <Container>
+      <Container>
         <Left>
           <List>
-              {ListItemData.map((item)=>
+            {ListItemData.map((item) =>
               <ListItem key={item} text={item}>{item}</ListItem>
-              )}
+            )}
           </List>
         </Left>
-        <Right>
-
+        <Right>          
+          {
+            work === "Python" ? (
+              <Python />
+            ) : work === "WebDevlopment" ? (
+              <WebDevlopment />
+            ) : work === "AI/ML" ? (
+              <MachineLearning />
+            ) : null
+          }
         </Right>
-       </Container>
+      </Container>
     </Section>
   )
 }

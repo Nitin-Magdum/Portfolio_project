@@ -1,10 +1,10 @@
-
 import React from 'react'
 import styled from 'styled-components'
 import Hero from './Componants/Hero'
 import WhoWeAre from './Componants/WhoWeAre'
 import Works from './Componants/Works'
 import Contact from './Componants/Contact'
+
 
 
 
@@ -27,12 +27,12 @@ const Container = styled.div`
 const App = () => {
   return (
     <Container>
-      <Hero/>
-      <WhoWeAre/>
-      <Works/>
-      <Contact/>
+      <Hero />
+      <WhoWeAre />
+      <Works />
+      <Contact />
     </Container>
-  
+
   )
 }
 

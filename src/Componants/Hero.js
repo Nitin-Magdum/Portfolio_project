@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MeshDistortMaterial, OrbitControls, Sphere } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 import NavBar from './NavBar';
-// import WhoWeAre from './WhoWeAre';
+
 
 
 const Section = styled.div`
@@ -78,49 +80,57 @@ const Right = styled.div`
 `;
 
 const Img = styled.img`
-width: 600px;
-height: 600px;
-object-fit: contain;
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
-animation: animate 1s infinite ease alternate;
-    @keyframes animate {
-        to{
-            transform: translateY(30px);
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: animate 1s infinite ease alternate;
+        @keyframes animate {
+            to{
+                transform: translateY(30px);
+            }
+        
         }
-     
-    }
-   
+    
 `;
 
 
 
 const Hero = () => {
-  return (
-    <Section>
-      <NavBar/>
-      <Container>
-        <Left>
-            <Title>
-                Think, Make , Solve
-            </Title>
-            <WhatWeDo>
-                <Line src="./img/line.png"/>
-                <Subtitle>What we do</Subtitle>
-            </WhatWeDo>
-            <Desc>we are good to go lets do it, i dont know what iam writing her ejust for it lest change it latter inti oot</Desc>
-            <Button>Learn More</Button>
-        </Left>
-        <Right>
-        <Img src="./img/Pest.png"/>
-        </Right>
-      </Container>
-    </Section>
-  )
+    return (
+        <Section>
+            <NavBar />
+            <Container>
+                <Left>
+                    <Title>
+                        Think, Make , Solve
+                    </Title>
+                    <WhatWeDo>
+                        <Line src="./img/line.png" />
+                        <Subtitle>What we do</Subtitle>
+                    </WhatWeDo>
+                    <Desc>we are good to go lets do it, i dont know what iam writing her ejust for it lest change it latter inti oot</Desc>
+                    <Button>Learn More</Button>
+                </Left>
+                <Right>
+                    <Canvas >
+                        <OrbitControls enableZoom={false} />
+                        <ambientLight intensity={2} />
+                        <directionalLight position={[3, 3, 2]} />
+                        <Sphere args={[1, 100, 200]} scale={2.5}>
+                            <MeshDistortMaterial color="#220736" attach="material" distort={0.5} speed={2} />
+                        </Sphere>
+                    </Canvas>
+                    <Img src="./img/Pest.png" />
+                </Right>
+            </Container>
+        </Section>
+    )
 }
 
 export default Hero
