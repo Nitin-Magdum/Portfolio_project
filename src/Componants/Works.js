@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
-import WebDevlopment from './WebDevlopment';
-import Python from './Python';
-import MachineLearning from './MachineLearning';
+
 
 
 const ListItemData = [
@@ -81,7 +79,7 @@ const Right = styled.div`
 
 
 const Works = () => {
-  const [work, setWork] = useState("Python")
+
   return (
     <Section>
       <Container>
@@ -93,15 +91,7 @@ const Works = () => {
           </List>
         </Left>
         <Right>          
-          {
-            work === "Python" ? (
-              <Python />
-            ) : work === "WebDevlopment" ? (
-              <WebDevlopment />
-            ) : work === "AI/ML" ? (
-              <MachineLearning />
-            ) : null
-          }
+          
         </Right>
       </Container>
     </Section>
